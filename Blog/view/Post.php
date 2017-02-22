@@ -41,10 +41,10 @@ and open the template in the editor.
             </div><!-- /.container-fluid -->
         </nav>        
         <div class="container">
-            <form class="form-group" action="controllerPost.php" method="post" enctype="multipart/form-data">
+            <form class="form-group" action="../controllerPost.php" method="post" enctype="multipart/form-data">
                 <p>Commentaire : <textarea rows="4" cols="40" name="commentaire"></textarea></p>
                 <p>Ajouter une image <input type="file" accept="image/*" name="img"></p>
-                <p><input type="submit" value="Envoyer"></p>
+                <p><input type="submit" name="submit" value="Envoyer"></p>
             </form>
         </div>
     </body>

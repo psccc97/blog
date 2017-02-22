@@ -47,7 +47,10 @@ and open the template in the editor.
 
         <div class="container">
             <h1>Bienvenue sur le Blog</h1>
-            <img src="../img/gabenCarrer.png" class="img-responsive" width="256" height="256">                        
+            <?php foreach ($posts as $post): ?>
+            <figure><img src="./img/<?php echo $post['nomMedia']?>" class="img-responsive" width="256" height="256"></figure>
+            <figcaption><?php echo $post['commentaire']; ?></figcaption>
+            <?php endforeach; ?>
         </div>
     </body>
 </html>
