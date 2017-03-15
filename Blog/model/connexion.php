@@ -1,12 +1,13 @@
 <?php
 
 define('HOST', "localhost");
-$dbname = "bd_blog_facebook";
-$user = "root";
-$password = "";
-$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+
 
 function connectDb() {
+    $dbname = "bd_blog_facebook";
+    $user = "root";
+    $password = "";
+    $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
     static $bd = NULL;
 
     if ($bd === NULL) {
