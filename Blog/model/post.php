@@ -17,7 +17,7 @@ function addPostComment($commentaire,$typeMedia,$nomMedia)
             "VALUE(:commentaire,NOW())";            
     $request = $db->prepare($sql);    
     $request->execute(array($commentaire));
-    $lastid->lastInsertId();
+    $lastid = $db->lastInsertId();
     
     $sql1 = "INSERT INTO media(typeMedia, nomMedia)".
             "VALUE(:typeMedia, :nomMedia)";    
