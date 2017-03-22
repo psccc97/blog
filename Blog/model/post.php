@@ -16,10 +16,11 @@ function addPostComment($commentaire, $file) {
         $sql = "INSERT INTO post(commentaire, datePost)" .
                 "VALUES(:commentaire,NOW())";
         $request = $db->prepare($sql);
-        $request->execute(array($commentaire));
+        $request->bindParam(":commentaire",$commentaire);
+        $request->execute();
         $lastid = $db->lastInsertId();
 
-        for ($i = 0; $i < count($file); $i++) {
+        for ($i = 0; $i < count($file['img']['name']); $i++) {
         $sql1 = "INSERT INTO media(typeMedia, nomMedia, idPost)" .
                 "VALUES(:typeMedia, :nomMedia, :lastid)";
         $request1 = $db->prepare($sql1);
@@ -27,7 +28,11 @@ function addPostComment($commentaire, $file) {
         $nomMedia = $_FILES['img']['name'][$i];
         $destination = "img/".$nomMedia;
         $source = $_FILES['img']['tmp_name'][$i];
-        $request1->execute(array($typeMedia, $nomMedia, $lastid));
+        
+        $request1->bindParam(":typeMedia",$typeMedia);
+        $request1->bindParam(":nomMedia",$nomMedia);
+        $request1->bindParam(":lastid",$lastid);
+        $request1->execute();
         $result = move_uploaded_file($source, $destination);
     }
 }
