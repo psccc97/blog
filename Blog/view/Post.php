@@ -30,13 +30,15 @@ and open the template in the editor.
             </div>
         </nav>        
         <div class="container">
-            <form class="form-group" action="./controllerPost.php" method="post" enctype="multipart/form-data">
-                <p>Commentaire : <textarea rows="4" cols="40" name="commentaire"></textarea></p>
-                <p>Ajouter une image <input type="file" accept="image/*" name="img[]" multiple required></p>
-                <p><input type="submit" name="submit" value="Envoyer"></p>
-            </form>
+            <section class="col-lg-8">
+                <form class="form-group" action="./controllerPost.php" method="post" enctype="multipart/form-data">
+                    <p>Commentaire : <textarea rows="4" cols="40" name="commentaire"></textarea></p>
+                    <p>Ajouter une image <input type="file" accept="image/*" name="img[]" multiple></p>
+                    <p>Ajouter une vidéo <input type="file" accept="video/*" name="video[]" multiple></p>
+                    <p><input type="submit" name="submit" value="Envoyer"></p>
+                </form>
+            </section>            
+            </section>
         </div>
     </body>
 </html>
-<!--<li class="active"><a href="../index.php">Home <span class="sr-only">(current)</span></a></li>
-<li><a href="view/Post.php">Post<span class="sr-only"> (current)</span></a></li>-->

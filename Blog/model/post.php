@@ -4,7 +4,7 @@ require_once 'connexion.php';
 
 function getPosts() {
     $db = connectDb();
-    $sql = "SELECT commentaire, nomMedia FROM media AS m, post AS p WHERE m.idPost = p.idPost";
+    $sql = "SELECT * FROM post";
     $request = $db->prepare($sql);
     $request->execute();
     return $request->fetchAll(PDO::FETCH_ASSOC);    
