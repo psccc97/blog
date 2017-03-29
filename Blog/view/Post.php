@@ -21,18 +21,18 @@ and open the template in the editor.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="../index.php">Blog</a>
+                    <a class="navbar-brand" href="./index.php">Blog</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="../index.php">Home</a></li>
-                    <li><a href="view/Post.php">Post</a></li>
+                    <li class="active"><a href="./index.php">Home</a></li>
+                    <li><a href="./includePost.php">Post</a></li>
                 </ul>
             </div>
         </nav>        
         <div class="container">
-            <form class="form-group" action="../controllerPost.php" method="post" enctype="multipart/form-data">
+            <form class="form-group" action="./controllerPost.php" method="post" enctype="multipart/form-data">
                 <p>Commentaire : <textarea rows="4" cols="40" name="commentaire"></textarea></p>
-                <p>Ajouter une image <input type="file" accept="image/*" name="img[]" multiple></p>
+                <p>Ajouter une image <input type="file" accept="image/*" name="img[]" multiple required></p>
                 <p><input type="submit" name="submit" value="Envoyer"></p>
             </form>
         </div>

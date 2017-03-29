@@ -23,19 +23,19 @@ and open the template in the editor.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="../index.php">Blog</a>
+                    <a class="navbar-brand" href="./index.php">Blog</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="../index.php">Home</a></li>
-                    <li><a href="view/Post.php">Post</a></li>
+                    <li class="active"><a href="./index.php">Home</a></li>
+                    <li><a href="./includePost.php">Post</a></li>
                 </ul>
             </div>
         </nav>        
 
         <div class="container">
             <h1>Bienvenue sur le Blog</h1>
-            <?php foreach ($posts as $post): ?>
-            <figure><img src="./img/<?php echo $post['nomMedia']?>" class="img-responsive" width="256" height="256"></figure>
+            <?php foreach ($posts as $post): ?>            
+            <figure><img src="./img/<?php echo $post['nomMedia']?>" class="img-responsive" width="256" height="256"></figure>            
             <figcaption><?php echo $post['commentaire']; ?></figcaption>
             <?php endforeach; ?>
         </div>

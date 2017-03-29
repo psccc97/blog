@@ -7,7 +7,18 @@ function getPosts() {
     $sql = "SELECT commentaire, nomMedia FROM media AS m, post AS p WHERE m.idPost = p.idPost";
     $request = $db->prepare($sql);
     $request->execute();
-    return $request->fetchAll(PDO::FETCH_ASSOC);
+    return $request->fetchAll(PDO::FETCH_ASSOC);    
+}
+
+function getMedias($idPost)
+{
+  $db = connectDb();
+  $sql = "SELECT * FROM media WHERE idPost = :idPost";
+  $request = $db->prepare($sql);
+  $request->bindParam(":idPost", $idPost);
+  $request->execute();
+  return $request->fetchAll(PDO::FETCH_ASSOC);
+  
 }
 
 function addPostComment($commentaire, $file) {
