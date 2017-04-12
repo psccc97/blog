@@ -35,17 +35,17 @@ require_once 'model/post.php';
                 $medias = getMedias($post['idPost']);
                 foreach ($medias as $media) :
                     if ($media['typeMedia'] == "image/jpeg" || $media['typeMedia'] == "image/png" || $media['typeMedia'] == "image/jpg" || $media['typeMedia'] == "image/gif") :?>
-                        <figure><img src="./img/<?php echo $media['nomMedia'] ?>" class="img-responsive" width="256" height="256"></figure>                    
-                        <?php elseif($media['typeMedia'] == "video/mp4" || $media['typeMedia'] == "video/webm" || $media['typeMedia'] == "video/ogg") : ?>
-                        <video src="./video/<?php echo $media['nomMedia'] ?>" controls></video>
-                        <?php else :?>
-                        <audio src="./audio/<?php echo $media['nomMedia']?>" controls></audio>
+                        <figure><img src="./img/<?php echo $media['idMedia'] ?>" class="img-responsive" width="256" height="256"></figure>                    
+                    <?php elseif ($media['typeMedia'] == "video/mp4" || $media['typeMedia'] == "video/webm" || $media['typeMedia'] == "video/ogg") : ?>
+                        <video src="./video/<?php echo $media['idMedia'] ?>" controls></video>
+                    <?php elseif($media['typeMedia'] == "audio/mp3" || $media['typeMedia'] == "audio/wav") : ?>
+                        <audio src="./audio/<?php echo $media['idMedia'] ?>" controls></audio>
                     <?php
                     endif;
                 endforeach;
                 ?>
                 <figcaption><?php echo $post['commentaire']; ?></figcaption>
-            <?php endforeach; ?>
+<?php endforeach; ?>
         </div>
     </body>
 </html>
