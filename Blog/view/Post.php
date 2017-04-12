@@ -35,6 +35,7 @@ and open the template in the editor.
                     <p>Commentaire : <textarea rows="4" cols="40" name="commentaire"></textarea></p>
                     <p>Ajouter une image <input type="file" accept="image/*" name="img[]" multiple></p>
                     <p>Ajouter une vidéo <input type="file" accept="video/*" name="video[]" multiple></p>
+                    <p>Ajouter un audio <input type="file" accept="audio/*" name="audio[]" multiple></p>
                     <p><input type="submit" name="submit" value="Envoyer"></p>
                 </form>
             </section>            

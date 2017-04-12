@@ -30,11 +30,20 @@ require_once 'model/post.php';
         </nav>        
         <div class="container">
             <h1>Bienvenue sur le Blog</h1>
-            <?php foreach ($posts as $post): ?>
-                <?php $medias = getMedias($post['idPost']); ?>
-                <?php foreach ($medias as $media) : ?>
-                    <figure><img src="./img/<?php echo $media['nomMedia'] ?>" class="img-responsive" width="256" height="256"></figure>
-                    <?php endforeach; ?>
+            <?php
+            foreach ($posts as $post):
+                $medias = getMedias($post['idPost']);
+                foreach ($medias as $media) :
+                    if ($media['typeMedia'] == "image/jpeg" || $media['typeMedia'] == "image/png" || $media['typeMedia'] == "image/jpg" || $media['typeMedia'] == "image/gif") :?>
+                        <figure><img src="./img/<?php echo $media['nomMedia'] ?>" class="img-responsive" width="256" height="256"></figure>                    
+                        <?php elseif($media['typeMedia'] == "video/mp4" || $media['typeMedia'] == "video/webm" || $media['typeMedia'] == "video/ogg") : ?>
+                        <video src="./video/<?php echo $media['nomMedia'] ?>" controls></video>
+                        <?php else :?>
+                        <audio src="./audio/<?php echo $media['nomMedia']?>" controls></audio>
+                    <?php
+                    endif;
+                endforeach;
+                ?>
                 <figcaption><?php echo $post['commentaire']; ?></figcaption>
             <?php endforeach; ?>
         </div>
